@@ -39,9 +39,3 @@ SMTP_EMAIL=your_email@gmail.com
 SMTP_PASSWORD=your_app_password
 ```
 
-
-
-## 📞 Contact
-Your Name - your.email@example.com
-
-Project Link: [https://github.com/yourusername/secret-agent-game](https://github.com/yourusername/secret-agent-game)
