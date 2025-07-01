@@ -1,80 +1,50 @@
-# 🕵️ Casus Oyunu - Multiplayer Web Oyunu
+# 🕵️ Spy Agent Game
 
-Arkadaşlarınızla oynayabileceğiniz gerçek zamanlı, web tabanlı Casus oyunu!
+A real-time multiplayer web game where you try to find the spy among your friends!
 
-## 🎮 Oyun Hakkında
+## 🎮 How to Play
 
-**Casus Oyunu**, 3-8 kişilik gruplar için tasarlanmış, sosyal ve stratejik bir oyundur. Bir kişi gizli casus olur, diğerleri aynı ülkeden vatandaş olur. Amaç: Vatandaşlar casusun kim olduğunu bulmalı, casus ise kimliğini gizlemeli!
+1. **Create a room** or **join an existing one** (3-8 players)
+2. One player is randomly selected as the **spy**
+3. All other players see the same **country name**, but the spy doesn't know which country it is
+4. **Discuss** and try to figure out who the spy is without revealing the country
+5. **Vote** for who you think is the spy!
 
-## ✨ Özellikler
+**Goal:** 
+- **Citizens:** Find and vote out the spy
+- **Spy:** Avoid detection and try to guess the country
 
-- 🌐 **Web tabanlı** - Herhangi bir indirme gerektirmez
-- 📱 **Mobil uyumlu** - Telefon ve tablet desteği
-- 🎨 **Modern arayüz** - Glassmorphism ve gradient tasarım
-- 💬 **Gerçek zamanlı chat** - Socket.IO ile anlık mesajlaşma
-- 🔄 **Otomatik reconnect** - Bağlantı kopma durumunda otomatik yeniden bağlanma
-- 🎯 **Oyuncu renkleri** - Her oyuncu için unique renk sistemi
-- 🏠 **Oda sistemi** - Kendi odanızı oluşturun veya mevcut bir odaya katılın
+## 🚀 Live Demo
 
-## 🎯 Nasıl Oynanır?
+**Play now:** [spygame.up.railway.app](https://spygame.up.railway.app)
 
-1. **Oda Oluştur** veya **Odaya Katıl**
-2. En az **3 oyuncu** gerekli
-3. Bir kişi rastgele **casus** seçilir
-4. Vatandaşlar aynı **ülkeyi** görür, casus ülkeyi bilmez
-5. **Tartışın** ve casusun kim olduğunu anlamaya çalışın
-6. **Oylama** ile casusun kim olduğunu seçin!
-
-## 🚀 Teknolojiler
+## 🛠️ Technologies Used
 
 - **Backend:** Python Flask + Socket.IO
 - **Frontend:** Vanilla JavaScript + CSS3
-- **Real-time:** WebSocket bağlantıları
-- **Styling:** Modern CSS3 (Glassmorphism, Gradients)
+- **Real-time communication:** WebSockets
+- **Deployment:** Railway
 
-## 🛠️ Kurulum (Geliştirme)
+## 📱 Features
+
+- Real-time chat and voting
+- Mobile-friendly responsive design
+- Automatic reconnection
+- Turkish interface
+- 70+ countries database
+
+## 🔧 Local Development
 
 ```bash
-# Repository'i klonlayın
 git clone https://github.com/omerfarukorc/SpyAgentGame.git
 cd SpyAgentGame
-
-# Bağımlılıkları yükleyin
 pip install -r requirements.txt
-
-# Uygulamayı başlatın
 python app.py
 ```
 
-Uygulama `http://localhost:5000` adresinde çalışacaktır.
-
-## 📱 Mobil Destek
-
-Oyun tüm mobil cihazlarda mükemmel çalışır:
-- iOS Safari
-- Android Chrome
-- Mobile Firefox
-- Ve diğer mobil tarayıcılar
-
-## 🌍 Canlı Demo
-
-[🎮 Oyunu Oyna!](https://spygame.up.railway.app)
-
-## 📝 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
-
-## 🤝 Katkıda Bulunma
-
-Pull request'ler memnuniyetle karşılanır! Büyük değişiklikler için önce issue açın.
-
-## ⭐ Destek
-
-Projeyi beğendiyseniz yıldız vermeyi unutmayın! ⭐
+Open `http://localhost:5000` in your browser.
 
 ---
 
-**Geliştirici:** [Ömer Faruk](https://github.com/omerfarukorc)  
-**Versiyon:** 1.0.0  
-**Son Güncelleme:** 2024
+Made by [Ömer Faruk](https://github.com/omerfarukorc)
 
