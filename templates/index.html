@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a202c">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>🕵️ Casus Oyunu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🕵️ Casus Oyunu</h1>
+            <p class="subtitle">Arkadaşlarınla oyna, casusı bul!</p>
+        </header>
+
+        <div class="game-modes">
+            <div class="card create-card">
+                <h2>🏠 Oda Oluştur</h2>
+                <p>Yeni bir oyun odası oluştur<p>
+                <form id="createRoomForm" class="form">
+                    <div class="input-group">
+                        <label for="playerName">👤 Adın:</label>
+                        <input type="text" id="playerName" placeholder="Adını gir" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="roomName">🏷️ Oda Adı:</label>
+                        <input type="text" id="roomName" placeholder="Oda adı (opsiyonel)">
+                    </div>
+                    <button type="submit" class="btn btn-primary">🚀 Yeni Oda Oluştur</button>
+                </form>
+            </div>
+
+            <div class="card join-card">
+                <h2>🚪 Odaya Katıl</h2>
+                <p>Arkadaşının oluşturduğu odaya katıl</p>
+                <form id="joinRoomForm" class="form">
+                    <div class="input-group">
+                        <label for="joinPlayerName">👤 Adın:</label>
+                        <input type="text" id="joinPlayerName" placeholder="Adını gir" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="joinRoomId">🔑 Oda Kodu:</label>
+                        <input type="text" id="joinRoomId" placeholder="Oda kodunu gir" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">🔗 Odaya Katıl</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="how-to-play">
+            <h3>🎯 Nasıl Oynanır?</h3>
+            <div class="rules">
+                <div class="rule">
+                    <span class="rule-number">1</span>
+                    <p><strong>Oda Oluştur:</strong> Bir oda oluştur ve arkadaşlarına kodu paylaş</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">2</span>
+                    <p><strong>Roller:</strong> Bir kişi casus olur, diğerleri aynı ülkeden vatandaş</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">3</span>
+                    <p><strong>Tartış:</strong> Konuşarak casusun kim olduğunu anlamaya çalış</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">4</span>
+                    <p><strong>Oyla:</strong> Casusun kim olduğunu düşünüyorsan oy ver!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

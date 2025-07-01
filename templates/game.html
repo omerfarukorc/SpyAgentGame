@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a202c">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>🕵️ Casus Oyunu - Oyun</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="game-body">
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="room-info">
+                <h2 id="roomName">🏠 Oda</h2>
+                <span id="roomCode" class="room-code">{{ room_id }}</span>
+            </div>
+            <div class="player-count">
+                <span id="playerCount">0</span> oyuncu
+            </div>
+        </header>
+
+        <!-- Role Display -->
+        <div id="roleCard" class="role-card hidden">
+            <div id="roleIcon" class="role-icon"></div>
+            <h3 id="roleTitle"></h3>
+            <p id="roleMessage"></p>
+            <div id="countryInfo" class="country-info hidden">
+                <span class="country-label">Ülke:</span>
+                <span id="countryName"></span>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area">
+            <!-- Players List -->
+            <div class="players-section">
+                <h3>👥 Oyuncular</h3>
+                <div id="playersList" class="players-list"></div>
+                
+                <div id="gameControls" class="game-controls">
+                    <button id="startGameBtn" class="btn btn-primary hidden">🚀 Oyunu Başlat</button>
+                    <button id="startVotingBtn" class="btn btn-warning hidden">🗳️ Oylamayı Başlat</button>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-section">
+                <h3>💬 Sohbet</h3>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div id="chatInput" class="chat-input hidden">
+                    <input type="text" id="messageInput" placeholder="Mesajını yaz...">
+                    <button id="sendBtn" class="btn-send">📤</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voting Section -->
+        <div id="votingSection" class="voting-section hidden">
+            <h3>🗳️ Oylama</h3>
+            <p>Kim casustur?</p>
+            <div id="votingButtons" class="voting-buttons"></div>
+        </div>
+
+        <!-- Timer -->
+        <div id="gameTimer" class="game-timer hidden">
+            <span id="timerLabel">Oyun Süresi:</span>
+            <span id="timerDisplay">05:00</span>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Oyuna katılıyor...</p>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Game End Modal -->
+    <div id="gameEndModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="gameEndTitle"></h2>
+            <p id="gameEndMessage"></p>
+            <div class="modal-buttons">
+                <button id="playAgainBtn" class="btn btn-primary">🔄 Tekrar Oyna</button>
+                <button id="homeBtn" class="btn btn-secondary">🏠 Ana Sayfa</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Room ID'yi JavaScript'e geç
+        const ROOM_ID = '{{ room_id }}';
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html> 
