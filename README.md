@@ -36,7 +36,7 @@ Arkadaşlarınızla oynayabileceğiniz gerçek zamanlı, web tabanlı Casus oyun
 
 ```bash
 # Repository'i klonlayın
-git clone https://github.com/[USERNAME]/SpyAgentGame.git
+git clone https://github.com/omerfarukorc/SpyAgentGame.git
 cd SpyAgentGame
 
 # Bağımlılıkları yükleyin
@@ -58,7 +58,7 @@ Oyun tüm mobil cihazlarda mükemmel çalışır:
 
 ## 🌍 Canlı Demo
 
-[🎮 Oyunu Oyna!](https://your-app-name.onrender.com)
+[🎮 Oyunu Oyna!](https://spygame.up.railway.app)
 
 ## 📝 Lisans
 
@@ -74,7 +74,7 @@ Projeyi beğendiyseniz yıldız vermeyi unutmayın! ⭐
 
 ---
 
-**Geliştirici:** [Ömer Faruk](https://github.com/[USERNAME])  
+**Geliştirici:** [Ömer Faruk](https://github.com/omerfarukorc)  
 **Versiyon:** 1.0.0  
 **Son Güncelleme:** 2024
 
