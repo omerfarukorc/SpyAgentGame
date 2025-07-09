@@ -52,16 +52,23 @@ createRoomForm.addEventListener('submit', (e) => {
     
     const playerName = document.getElementById('playerName').value.trim();
     const roomName = document.getElementById('roomName').value.trim();
+    const spyCount = parseInt(document.getElementById('spyCount').value);
     
     if (!playerName) {
         showNotification('Lütfen adınızı girin!', 'error');
         return;
     }
     
+    if (spyCount < 1 || spyCount > 3) {
+        showNotification('Hain sayısı 1-3 arasında olmalıdır!', 'error');
+        return;
+    }
+    
     // Oda oluşturma isteği gönder
     socket.emit('create_room', {
         player_name: playerName,
-        room_name: roomName || `${playerName}'in Odası`
+        room_name: roomName || `${playerName}'in Odası`,
+        spy_count: spyCount
     });
 });
 
@@ -94,12 +101,32 @@ joinRoomForm.addEventListener('submit', (e) => {
 // Oda oluşturuldu
 socket.on('room_created', (data) => {
     localStorage.setItem('playerName', data.player_name);
+    localStorage.setItem('isCreator', data.is_creator);
     showNotification(`Oda oluşturuldu! Kod: ${data.room_id}`, 'success');
+    
+    // WhatsApp paylaşım özelliği
+    const whatsappText = `🕵️ Casus Oyununa Katıl!\n\nOda Kodu: ${data.room_id}\nLink: ${window.location.origin}/game/${data.room_id}\n\n${data.spy_count} hain var, çok eğlenceli olacak! 🎮`;
+    
+    // WhatsApp butonunu göster
+    setTimeout(() => {
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'btn btn-whatsapp';
+        shareBtn.innerHTML = '📱 WhatsApp\'ta Paylaş';
+        shareBtn.onclick = () => {
+            window.open(`https://wa.me/?text=${encodeURIComponent(whatsappText)}`, '_blank');
+        };
+        
+        // Notification alanına ekle
+        const notificationArea = document.querySelector('.notification');
+        if (notificationArea) {
+            notificationArea.appendChild(shareBtn);
+        }
+    }, 1000);
     
     // Oyun sayfasına yönlendir
     setTimeout(() => {
         window.location.href = `/game/${data.room_id}`;
-    }, 1500);
+    }, 3000);
 });
 
 // Odaya katılındı
